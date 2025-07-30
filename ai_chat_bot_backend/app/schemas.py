@@ -34,7 +34,12 @@ class PasswordResetSchema(Schema):
 
 # PUBLIC_INTERFACE
 class MessageSchema(Schema):
-    """Chat message schema for create and retrieve."""
+    """
+    Chat message schema for create and retrieve.
+
+    Represents an individual message in the persistent chat history.
+    All chat history endpoints return messages in chronological (historical) order.
+    """
     id = fields.Int(dump_only=True, metadata={"description": "Message identifier"})
     text = fields.Str(required=True, metadata={"description": "Message content"})
     is_user = fields.Bool(required=True, metadata={"description": "Is message from user"})

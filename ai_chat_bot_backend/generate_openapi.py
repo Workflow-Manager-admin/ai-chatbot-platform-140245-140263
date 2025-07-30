@@ -2,6 +2,10 @@ import json
 import os
 from app import app, api  # import your Flask app and Api instance
 
+# This module generates the OpenAPI spec for the backend service.
+# NOTE: The /chat endpoint stores each user message and bot reply,
+# and AI replies now consider full chat history for context-aware responses.
+
 with app.app_context():
     # flask-smorest stores the spec in api.spec
     openapi_spec = api.spec.to_dict()
